@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<title>InfoVis final project</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+<style>
+    body{
+        font-family: Futura, Trebuchet MS, Arial, sans-serif;
+    }
+    h1{
+        font-size: 50px;
+        text-align: center;
+    }
+    h2{
+        font-size: 20px;
+        text-align: center;
+    }
+    #map{
+        height: 100%;
+        width: 50%;
+        position: fixed;
+        left: 0;
+    }
+    .main{
+        margin-left: 50%;
+        width: 50%;
+        padding: 10px 50px 20px;
+        box-sizing: border-box;
+    }
+    .chart{
+        margin-top: 20px;
+    }
+
+</style>
+<body>
+    <div>
+        <h1>Singapore Airbnb 2021</h1>
+        <h2>Information Visualization Final Project
+            <p style="margin: 0"> by Seonghye Jeong</h2>
+    </div>
+
+    <div id="map"></div>
+    <div class="main">
+        <div>
+            <h3>🇸🇬 PRICE vs REVIEWS PER MONTH</h3>
+            <div>
+                maximum # of reviews:
+                <select id="max-reviews">
+                    <option value=0.1>0.1</option>
+                    <option value=0.2>0.2</option>
+                    <option value=0.3>0.3</option>
+                    <option value=0.4>0.4</option>
+                    <option value=0.5>0.5</option>
+                    <option value=0.8 selected>0.8</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                </select>
+            </div>
+            <svg id="chart_reviews" class="chart"></svg>
+        </div>
+        <div>
+            <h3>🇸🇬 PRICE vs MINIMUM NIGHTS</h3>
+            <div>
+                Minimum Nights:
+                <select id="min_nights">
+                    <option value=5>5</option>
+                    <option value=10>10</option>
+                    <option value=100>100</option>
+                    <option value=500 selected>500</option>
+                    <option value=1000>1000</option>
+                </select>
+            </div>
+            <div>
+                Room Type:
+                <label style="font-size: 14px; color: purple">
+                    <input type="checkbox" class="roomtype" value="private" checked>
+                    Private
+                </label>
+                <label style="font-size: 14px; color: blue">
+                    <input type="checkbox" class="roomtype" value="shared" checked>
+                    Shared
+                </label>
+                <label style="font-size: 14px; color: orange">
+                    <input type="checkbox" class="roomtype" value="entire" checked>
+                    Entire home/apt
+                </label>
+                <label style="font-size: 14px; color: green">
+                    <input type="checkbox" class="roomtype" value="hotel" checked>
+                    Hotel Room
+                </label>
+            </div>
+            <svg id="chart_nights" class="chart"></svg>
+        </div>
+    </div>
+    
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script type="text/javascript" src="./config.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+</body>
